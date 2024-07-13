@@ -1,4 +1,5 @@
 let db;
+let intervalId;
 // WebAssembly modülünü başlat ve veritabanını oluştur
 window.initSqlJs({
     locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/${file}`
@@ -94,6 +95,13 @@ window.initSqlJs({
     }
     
     displayData();
+
+    function updateData() {
+        displayData();
+    }
+
+    intervalId = setInterval(updateData, 1000); 
+
 }).catch(err => {
     console.error('Failed to initialize SQL.js:', err);
 });
