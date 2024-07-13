@@ -34,7 +34,7 @@ window.initSqlJs({
         
         // Veritabanını localStorage'a kaydet
         saveDatabase();
-        
+        window.location.href = "index.html";
         // Verileri yeniden görüntüleyin
         displayData();
     });
@@ -69,11 +69,11 @@ window.initSqlJs({
                 <div class="deneme">
                     <div class="deneme1">
                         <span id="name-${id}">${name}</span>
-                        <button class="btn-delete" data-id="${id}">Sil</button>
+                        <button class="btn-delete" data-id="${id}"><i class="fa-solid fa-trash fa-xm"></i></button>
                     </div>
                     <div class="deneme1">
                         <span id="email-${id}"> ${email}</span>
-                        <span id="end-date-${id}">Bitiş Tarihi: ${fark}</span>
+                        <span id="end-date">${fark} Gün kaldı</span>
                     </div>
                 </div>
                 `;
@@ -100,8 +100,16 @@ window.initSqlJs({
         displayData();
     }
 
-    intervalId = setInterval(updateData, 1000); 
+    intervalId = setInterval(updateData, 1); 
 
 }).catch(err => {
     console.error('Failed to initialize SQL.js:', err);
 });
+
+function add() {
+    window.location.href = 'add.html';
+}
+
+function home() {
+    window.location.href = 'index.html';
+}
