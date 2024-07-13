@@ -113,3 +113,8 @@ function add() {
 function home() {
     window.location.href = 'index.html';
 }
+
+function moveCursorToEnd(inputElement) {
+    var length = inputElement.value.length;
+    inputElement.setSelectionRange(length, length);
+}
