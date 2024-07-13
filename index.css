@@ -1,0 +1,49 @@
+body{
+display: flex;
+}
+
+.main{
+  min-width: 100%;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.title{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.deneme{
+  border: 1px solid grey;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 10px;
+ 
+}
+
+.deneme1{
+    justify-content: space-between;
+    display: flex;
+}
+
+
+.btn-delete{
+    border: 1px solid red;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    padding: 5px 10px;
+    
+}
+
+#dataForm{
+  display: grid;
+}
+
+input{
+  margin-bottom: 15px;
+}
+
+#output{
+text-align: center;
+}
