@@ -3,43 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garanty - Form Sayfası</title>
+    <title>Garanty</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js"></script>
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="index.css">
-    <style>
-        form {
-            margin-bottom: 20px;
+   
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw1.js')
+              .then(function(registration) {
+                console.log('Servis işçisi kaydedildi: ', registration.scope);
+              })
+              .catch(function(err) {
+                console.log('Servis işçisi kaydedilemedi: ', err);
+              });
+          });
         }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+        </script>
+        
 </head>
 <body>
-    <h1>Garanty - Form Sayfası</h1>
+    <div class="main">
+    <div class="title">
+    <h1>Garanty</h1>
+    </div>
+
     <form id="dataForm">
-        <label for="name">İsim:</label>
+        <label for="name">Ürün adı</label>
         <input type="text" id="name" name="name" required>
-        <br>
-        <label for="email">E-posta:</label>
+        <label for="email">Açıklama</label>
         <input type="text" id="email" name="email" required>
-        <br>
-        <label for="start-date">Başlangıç Tarihi:</label>
-        <input type="date" id="start-date" name="start-date" required>
-        <br>
-        <label for="end-date">Bitiş Tarihi:</label>
-        <input type="date" id="end-date" name="end-date" required>
-        <br>
-        <button type="submit">Veri Ekle</button>
+    <div class="add-dates">
+        <div class="add-date">
+            <label for="start-date">Başlangıç</label>
+            <input type="date" id="start-date" name="start-date" value="{n}" required>
+        </div>
+        <div class="add-date">
+            <label for="end-date">Bitiş</label>
+            <input type="date" id="end-date" name="end-date" required>
+        </div>
+    </div>
+
+    <div class="add-btns">
+        <button onclick="home()">Vazgeç</button>
+        <button type="submit">Ekle</button>
+    
+    </div>
     </form>
-    <a href="index.html">Ana Sayfaya Dön</a>
+    <div id="output" style="display: none;"></div>
+  
+</div>
 </body>
 </html>
