@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    
     <title>Garanty</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="index.js" defer></script>
-     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="index.css">
    
     <script>
@@ -31,22 +29,13 @@
     <div class="title">
     <h1>Garanty</h1>
     </div>
-
-    <form id="dataForm">
-        <label for="name">Ürün</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Açıklama</label>
-        <input type="text" id="email" name="email" required>
-        <label for="start-date">Başlangıç Tarihi</label>
-        <input type="date" id="start-date" name="start-date" required>
-        <label for="end-date">Bitiş Tarihi</label>
-        <input type="date" id="end-date" name="end-date" required>
-        <button type="submit">Ekle</button>
-    </form>
+    <form id="dataForm" style="display: none;"> </form>
     
     <h3>Ürünler</h3>
-    
     <div id="output"></div>
+    <div class="home-addbtns">
+   <button onclick="add()" class="addbtn"><i class="fa-solid fa-plus fa-xl" ></i></button>
+  </div>
 </div>
 </body>
 </html>
