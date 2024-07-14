@@ -68,7 +68,7 @@ window.initSqlJs({
                 div.innerHTML = `
                 <div class="deneme">
                     <div class="deneme1">
-                        <span id="name-${id}">${name}</span>
+                        <span id="name-${id}">${endDate}</span>
                         <button class="btn-delete" data-id="${id}"><i class="fa-solid fa-trash fa-xm"></i></button>
                     </div>
                     <div class="deneme1">
