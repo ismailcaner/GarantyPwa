@@ -62,7 +62,23 @@ window.initSqlJs({
                 const nowdate = new Date();
                 const enddate = new Date(row[4]);  
                 const islem = enddate - nowdate;
-                const fark = Math.ceil(islem / (1000 * 3600 * 24));
+                const daysLeft = Math.ceil(islem / (1000 * 3600 * 24));
+
+                let containerClass = '';
+                let backgroundColor = '';
+                if (daysLeft >= 365) {
+                    textColor = '#1d7952';
+                    backgroundColor = '#d2ffe4'; 
+                } else if (daysLeft >= 180) {
+                    textColor = '#485365';
+                    backgroundColor = '#f2f4f7'; 
+                } else if (daysLeft >= 90 || daysLeft > 30) {
+                    textColor = '#bf5f28';
+                    backgroundColor = '#fffaea'; 
+                } else if ( daysLeft <= 30 ){
+                    textColor = '#be4239';
+                    backgroundColor = '#fef3f2';
+                }
                 
                 const div = document.createElement("div");
                 div.innerHTML = `
@@ -73,7 +89,7 @@ window.initSqlJs({
                     </div>
                     <div class="deneme1">
                         <span id="email-${id}"> ${email}</span>
-                        <span id="end-date">${fark} Gün kaldı</span>
+ <span id="end-date" style="background-color: ${backgroundColor}; color: ${textColor};">${daysLeft} Gün kaldı</span>
                     </div>
                 </div>
                 `;
