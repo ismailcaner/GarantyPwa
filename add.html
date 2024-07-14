@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     
     <title>Garanty</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js"></script>
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="index.css">
-    <link rel="manifest" href="/manifest.json">
    
     <script>
         if ('serviceWorker' in navigator) {
@@ -31,7 +31,7 @@
     <div class="title">
     <h1>Garanty</h1>
     </div>
-
+<div class="form">
     <form id="dataForm">
         <label for="name">Ürün adı</label>
         <input type="text" id="name" name="name" required>
@@ -44,7 +44,7 @@
         </div>
         <div class="add-date">
             <label for="end-date">Bitiş</label>
-            <input type="date" id="end-date" name="end-date" >
+            <input type="date" id="end-date" name="end-date"required >
         </div>
     </div>
 
@@ -54,6 +54,7 @@
     
     </div>
     </form>
+  </div>
     <div id="output" style="display: none;"></div>
   
 </div>
