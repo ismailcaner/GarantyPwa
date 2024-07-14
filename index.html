@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="index.css">
-    <link rel="manifest" href="/manifest.json">
    
     <script>
         if ('serviceWorker' in navigator) {
@@ -31,16 +30,20 @@
 </head>
 <body>
     <div class="main">
-    <div class="title">
-    <h1>Garanty</h1>
+
+        <div class="title">
+          <h1>Garanty</h1>
+        </div>
+          <form id="dataForm" style="display: none;"> </form>
+      
+          <h3>Ürünler</h3>
+
+          <div id="output"></div>
+  
+        <div class="home-addbtns">
+          <button onclick="add()" class="addbtn"><i class="fa-solid fa-plus fa-xl" ></i></button>
+        </div>
+        
     </div>
-    <form id="dataForm" style="display: none;"> </form>
-    
-    <h3>Ürünler</h3>
-    <div id="output"></div>
-    <div class="home-addbtns">
-   <button onclick="add()" class="addbtn"><i class="fa-solid fa-plus fa-xl" ></i></button>
-  </div>
-</div>
 </body>
 </html>
