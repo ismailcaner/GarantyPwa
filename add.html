@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Garanty</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js"></script>
     <script src="index.js" defer></script>
@@ -38,13 +37,15 @@
     <div class="add-dates">
         <div class="add-date">
             <label for="start-date">Başlangıç</label>
-            <input type="date" id="start-date" name="start-date" value="{n}" required>
+            <input type="date" id="start-date" name="start-date" >
         </div>
         <div class="add-date">
             <label for="end-date">Bitiş</label>
-            <input type="date" id="end-date" name="end-date" required>
+            <input type="date" id="end-date" name="end-date" >
         </div>
     </div>
+
+    <input type="file" id="pdf-file" name="pdf-file" accept="application/pdf" required>
 
     <div class="add-btns">
         <button onclick="home()">Vazgeç</button>
