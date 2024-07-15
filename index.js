@@ -115,7 +115,7 @@ window.initSqlJs({
         displayData();
     }
 
-    intervalId = setInterval(updateData, 100000000); 
+    intervalId = setInterval(updateData, 1); 
 
 }).catch(err => {
     console.error('Failed to initialize SQL.js:', err);
