@@ -1,45 +1,44 @@
 let db;
 let intervalId;
-// WebAssembly modülünü başlat ve veritabanını oluştur
 window.initSqlJs({
     locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/${file}`
 }).then(SQL => {
-    // Veritabanını oluşturun
+ 
     db = new SQL.Database();
     
-    // Veritabanı içeriğini localStorage'dan yükle
+
     const savedDb = localStorage.getItem('myDatabase');
     if (savedDb) {
         db = new SQL.Database(new Uint8Array(JSON.parse(savedDb)));
     } else {
-        // Tablo oluştur
+   
         db.run("CREATE TABLE contacts (id INTEGER PRIMARY KEY, name TEXT, email TEXT, start_date TEXT, end_date TEXT);");
     }
 
-    // Form verilerini işleme
+
     document.getElementById('dataForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Formun varsayılan olarak gönderilmesini engelle
+        event.preventDefault();
         
-        // Formdan veri al
+   
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const startDate = document.getElementById('start-date').value;
         const endDate = document.getElementById('end-date').value;
 
-        // Veriyi tabloya ekleyin
+       
         db.run("INSERT INTO contacts (name, email, start_date, end_date) VALUES (?, ?, ?, ?)", [name, email, startDate, endDate]);
         
-        // Formu temizle
+   
         document.getElementById('dataForm').reset();
         
-        // Veritabanını localStorage'a kaydet
+       
         saveDatabase();
         window.location.href = "index.html";
-        // Verileri yeniden görüntüleyin
+     
         displayData();
     });
 
-    // Veritabanını localStorage'a kaydetme
+
     function saveDatabase() {
         const data = db.export();
         localStorage.setItem('myDatabase', JSON.stringify(Array.from(new Uint8Array(data))));
@@ -77,19 +76,19 @@ window.initSqlJs({
                     backgroundColor = '#fffaea'; 
                 } else if ( daysLeft <= 30 ){
                     textColor = '#be4239';
-                    backgroundColor = '#fef3f2';
+                    backgroundColor = '#fad5d2';
                 }
                 
                 const div = document.createElement("div");
                 div.innerHTML = `
                 <div class="deneme">
                     <div class="deneme1">
-                        <span id="name-${id}">${name}</span>
-                        <button class="btn-delete" data-id="${id}"><i class="fa-solid fa-trash fa-xm"></i></button>
+                        <span id="name-${id}" style='font-weight:bold;'>${name}</span>
+                        <button class="btn-delete" data-id="${id}"><i class="fa-solid fa-trash xl"></i></button>
                     </div>
                     <div class="deneme1">
                         <span id="email-${id}"> ${email}</span>
- <span id="end-date" style="background-color: ${backgroundColor}; color: ${textColor};">${daysLeft} Gün kaldı</span>
+                        <span id="end-date" style="background-color: ${backgroundColor}; color: ${textColor};"><i class="fa-regular fa-calendar"></i> ${daysLeft} Gün kaldı</span>
                     </div>
                 </div>
                 `;
@@ -116,7 +115,7 @@ window.initSqlJs({
         displayData();
     }
 
-    intervalId = setInterval(updateData, 1); 
+    intervalId = setInterval(updateData, 100000000); 
 
 }).catch(err => {
     console.error('Failed to initialize SQL.js:', err);
@@ -135,3 +134,5 @@ function moveCursorToEnd(inputElement) {
     var length = inputElement.value.length;
     inputElement.setSelectionRange(length, length);
 }
+
+
