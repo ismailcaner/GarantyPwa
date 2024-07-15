@@ -13,6 +13,21 @@
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="index.css">
     <link rel="manifest" href="/manifest.json">
+
+    <script>
+        if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw1.js')
+      .then(function(registration) {
+        console.log('Servis işçisi kaydedildi: ', registration.scope);
+      })
+      .catch(function(err) {
+        console.log('Servis işçisi kaydedilemedi: ', err);
+      });
+  });
+}
+
+    </script>
    
 
         
