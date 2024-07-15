@@ -12,20 +12,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="index.css">
+    <link rel="manifest" href="/manifest.json">
    
-    <script>
-        if ('serviceWorker' in navigator) {
-          window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw1.js')
-              .then(function(registration) {
-                console.log('Servis işçisi kaydedildi: ', registration.scope);
-              })
-              .catch(function(err) {
-                console.log('Servis işçisi kaydedilemedi: ', err);
-              });
-          });
-        }
-        </script>
+
         
 </head>
 <body>
@@ -43,7 +32,7 @@
         <div class="home-addbtns">
           <button onclick="add()" class="addbtn"><i class="fa-solid fa-plus fa-xl" ></i></button>
         </div>
-        
+
     </div>
 </body>
 </html>
