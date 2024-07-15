@@ -3,60 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    
     <title>Garanty</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.1/sql-wasm.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="index.css">
-   
+    <link rel="manifest" href="/manifest.json">
+
     <script>
-        if ('serviceWorker' in navigator) {
-          window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw1.js')
-              .then(function(registration) {
-                console.log('Servis işçisi kaydedildi: ', registration.scope);
-              })
-              .catch(function(err) {
-                console.log('Servis işçisi kaydedilemedi: ', err);
-              });
-          });
-        }
-        </script>
-        
+      document.addEventListener('DOMContentLoaded', (event) => {
+          const today = new Date();
+          const year = today.getFullYear();
+          const month = String(today.getMonth() + 1).padStart(2, '0'); 
+          const day = String(today.getDate()).padStart(2, '0');
+          const formattedDate = `${year}-${month}-${day}`;
+          document.getElementById('start-date').value = formattedDate;
+          document.getElementById('end-date').value = formattedDate;
+      });
+  </script>
+
 </head>
 <body>
     <div class="main">
-    <div class="title">
-    <h1>Garanty</h1>
-    </div>
-<div class="form">
-    <form id="dataForm">
-        <label for="name">Ürün adı</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Açıklama</label>
-        <input type="text" id="email" name="email" required>
-    <div class="add-dates">
-        <div class="add-date">
-            <label for="start-date">Başlangıç</label>
-            <input type="date" id="start-date" name="start-date" >
+        <div class="title">
+            <h1>Garanty</h1>
         </div>
-        <div class="add-date">
-            <label for="end-date">Bitiş</label>
-            <input type="date" id="end-date" name="end-date"required >
+        <div class="form">
+            <form id="dataForm">
+                <label for="name">Ürün adı</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Açıklama</label>
+                <input type="text" id="email" name="email">
+                <div class="add-dates">
+                    <div class="add-date">
+                        <label for="start-date" class="dates">Başlangıç</label>
+                        <input type="date" id="start-date" name="start-date">
+                    </div>
+                    <div class="add-date">
+                        <label for="end-date" class="dates">Bitiş</label>
+                        <input type="date" id="end-date" name="end-date" required>
+                    </div>
+                </div>
+                <div class="add-btns">
+                    <button type="button" onclick="home()" class="backbtn">Vazgeç</button>
+                    <button type="submit" class="savebtn">Ekle</button>
+                </div>
+            </form>
         </div>
+        <div id="output" style="display: none;"></div>
     </div>
 
-    <div class="add-btns">
-        <button onclick="home()">Vazgeç</button>
-        <button type="submit">Ekle</button>
-    
-    </div>
-    </form>
-  </div>
-    <div id="output" style="display: none;"></div>
-  
-</div>
+ 
 </body>
 </html>
